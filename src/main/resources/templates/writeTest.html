@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>CSV Performance Tester</title>
+</head>
+<body>
+<h1>Form</h1>
+<form action="#" th:action="@{/writeTest}" th:object="${writeValues}" method="post">
+    <p>Records to write: <input type="number" th:field="*{numRecords}" min="10000" max="1000000" step="1000"
+                                value="10000"/>
+    </p>
+    <p>File: <input type="file" th:field="*{file}" webkitdirectory/></p>
+    <p><input type="submit" value="Submit"/> <input type="reset" value="Reset"/></p>
+</form>
+</body>
+</html>
