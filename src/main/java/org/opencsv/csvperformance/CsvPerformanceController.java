@@ -1,5 +1,6 @@
 package org.opencsv.csvperformance;
 
+import org.opencsv.csvperformance.domain.DataType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,6 +15,7 @@ public class CsvPerformanceController {
         ReadValues readValues = new ReadValues();
         readValues.setIterations(5);
         model.addAttribute("readValues", readValues);
+        model.addAttribute("dataValues", DataType.buildIdNameMap());
         return "readTest";
     }
 
@@ -25,8 +27,9 @@ public class CsvPerformanceController {
     @GetMapping("/writeTest")
     public String setupWriteTestForm(Model model) {
         WriteValues writeValues = new WriteValues();
-        writeValues.setNumRecords(5000);
+        writeValues.setNumRecords(15000);
         model.addAttribute("writeValues", writeValues);
+        model.addAttribute("dataValues", DataType.buildIdNameMap());
         return "writeTest";
     }
 

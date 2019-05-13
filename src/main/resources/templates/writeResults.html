@@ -8,6 +8,7 @@
 <h1>Results</h1>
 <p th:text="'numRecords: ' + ${writeValues.numRecords}"/>
 <p th:text="'file: ' + ${writeValues.file}"/>
-<a href="/start">Run another performance test</a>
+<p th:text="'Write from: ' + ${writeValues.writeFrom}"/>
+<a href="/writeTest">Run another performance test</a>
 </body>
 </html>

@@ -8,6 +8,7 @@
 <h1>Results</h1>
 <p th:text="'numRecords: ' + ${readValues.iterations}"/>
 <p th:text="'file: ' + ${readValues.file}"/>
-<a href="/start">Run another performance test</a>
+<p th:text="'Read into: ' + ${readValues.readInto}"/>
+<a href="/readTest">Run another performance test</a>
 </body>
 </html>

@@ -5,11 +5,17 @@
     <title>CSV Performance Tester</title>
 </head>
 <body>
-<h1>Form</h1>
+<h1>Read Test</h1>
 <form action="#" th:action="@{/readTest}" th:object="${readValues}" method="post">
     <p>Iterations: <input type="number" th:field="*{iterations}" min="1" max="10"/>
     </p>
     <p>File: <input type="file" th:field="*{file}"/></p>
+    <p>Read Into:
+        <select th:field="*{readInto}">
+            <option th:each="key:${dataValues.keySet()}" th:value="${key}" th:utext="${dataValues.get(key)}">
+            </option>
+        </select>
+    </p>
     <p><input type="submit" value="Submit"/> <input type="reset" value="Reset"/></p>
 </form>
 </body>

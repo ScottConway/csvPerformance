@@ -5,6 +5,7 @@ import java.io.File;
 public class ReadValues {
     private long iterations;
     private File file;
+    private String readInto;
 
     public long getIterations() {
         return iterations;
@@ -20,5 +21,13 @@ public class ReadValues {
 
     public void setFile(File file) {
         this.file = file;
+    }
+
+    public String getReadInto() {
+        return readInto;
+    }
+
+    public void setReadInto(String readInto) {
+        this.readInto = readInto;
     }
 }
