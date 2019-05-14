@@ -11,8 +11,13 @@ import java.beans.PropertyDescriptor;
 import java.lang.reflect.InvocationTargetException;
 
 public class RandomDataSetter {
-    public static void setRandomValues(Object o) throws IntrospectionException {
-        BeanInfo beanInfo = Introspector.getBeanInfo(o.getClass());
+    public static void setRandomValues(Object o) {
+        BeanInfo beanInfo = null;
+        try {
+            beanInfo = Introspector.getBeanInfo(o.getClass());
+        } catch (IntrospectionException e) {
+            e.printStackTrace();
+        }
         for (PropertyDescriptor descriptor : beanInfo.getPropertyDescriptors()) {
             try {
                 setRandomValue(o, descriptor);
