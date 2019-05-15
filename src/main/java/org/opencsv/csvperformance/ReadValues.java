@@ -6,6 +6,7 @@ public class ReadValues {
     private long iterations;
     private File file;
     private String readInto;
+    private String parserToUse;
 
     public long getIterations() {
         return iterations;
@@ -29,5 +30,13 @@ public class ReadValues {
 
     public void setReadInto(String readInto) {
         this.readInto = readInto;
+    }
+
+    public String getParserToUse() {
+        return parserToUse;
+    }
+
+    public void setParserToUse(String parserToUse) {
+        this.parserToUse = parserToUse;
     }
 }

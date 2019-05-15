@@ -14,6 +14,7 @@ public class CsvPerformanceController {
     public String setupReadTestForm(Model model) {
         ReadValues readValues = new ReadValues();
         readValues.setIterations(5);
+        readValues.setParserToUse(Constants.CSVPARSER);
         model.addAttribute("readValues", readValues);
         model.addAttribute("dataValues", DataType.buildIdNameMap());
         return "readTest";
@@ -28,6 +29,7 @@ public class CsvPerformanceController {
     public String setupWriteTestForm(Model model) {
         WriteValues writeValues = new WriteValues();
         writeValues.setNumRecords(15000);
+        writeValues.setParserToUse(Constants.CSVPARSER);
         model.addAttribute("writeValues", writeValues);
         model.addAttribute("dataValues", DataType.buildIdNameMap());
         return "writeTest";

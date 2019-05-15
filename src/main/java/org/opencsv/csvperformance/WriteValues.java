@@ -6,6 +6,7 @@ public class WriteValues {
     private long numRecords;
     private File file;
     private String writeFrom;
+    private String parserToUse;
 
     public long getNumRecords() {
         return numRecords;
@@ -29,5 +30,13 @@ public class WriteValues {
 
     public void setWriteFrom(String writeFrom) {
         this.writeFrom = writeFrom;
+    }
+
+    public String getParserToUse() {
+        return parserToUse;
+    }
+
+    public void setParserToUse(String parserToUse) {
+        this.parserToUse = parserToUse;
     }
 }

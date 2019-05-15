@@ -16,6 +16,10 @@
             </option>
         </select>
     </p>
+    <p>Parser to Use:<br>
+        <input type="radio" th:field="*{parserToUse}" value="CSVParser">CSVParser<br>
+        <input type="radio" th:field="*{parserToUse}" value="RFC4180Parser">RFC4180Parser<br>
+    </p>
     <p><input type="submit" value="Submit"/> <input type="reset" value="Reset"/></p>
 </form>
 </body>
