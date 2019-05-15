@@ -17,7 +17,7 @@ public class BeanToCSVBuilder<T> {
         FileWriter fileWriter;
 
         try {
-            fileWriter = new FileWriter(writeValues.getFile());
+            fileWriter = new FileWriter(writeValues.getFile().getName());
         } catch (IOException ioe) {
             System.out.println(ioe.getStackTrace());
             return null;

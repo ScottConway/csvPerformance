@@ -24,6 +24,10 @@ public class CsvPerformanceController {
 
     @PostMapping("/readTest")
     public String readTestSubmit(@ModelAttribute ReadValues readValues) {
+        ReadPerformanceTester tester = new ReadPerformanceTester();
+
+        tester.runPerformanceTest(readValues);
+
         return "readResults";
     }
 

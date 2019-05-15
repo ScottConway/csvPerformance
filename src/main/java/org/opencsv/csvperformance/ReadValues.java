@@ -7,6 +7,7 @@ public class ReadValues {
     private File file;
     private String readInto;
     private String parserToUse;
+    private double timeToRun;
 
     public long getIterations() {
         return iterations;
@@ -38,5 +39,13 @@ public class ReadValues {
 
     public void setParserToUse(String parserToUse) {
         this.parserToUse = parserToUse;
+    }
+
+    public double getTimeToRun() {
+        return timeToRun;
+    }
+
+    public void setTimeToRun(double timeToRun) {
+        this.timeToRun = timeToRun;
     }
 }
