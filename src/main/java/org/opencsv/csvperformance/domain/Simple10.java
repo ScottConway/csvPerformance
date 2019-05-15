@@ -93,4 +93,20 @@ public class Simple10 {
     public void setChar2(char char2) {
         this.char2 = char2;
     }
+
+    @Override
+    public String toString() {
+        return "Simple10{" +
+                "text1='" + text1 + '\'' +
+                ", num1=" + num1 +
+                ", double1=" + double1 +
+                ", dateTime1=" + dateTime1 +
+                ", char1=" + char1 +
+                ", text2='" + text2 + '\'' +
+                ", num2=" + num2 +
+                ", double2=" + double2 +
+                ", dateTime2=" + dateTime2 +
+                ", char2=" + char2 +
+                '}';
+    }
 }

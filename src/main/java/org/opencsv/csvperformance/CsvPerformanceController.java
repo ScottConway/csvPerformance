@@ -1,5 +1,7 @@
 package org.opencsv.csvperformance;
 
+import com.opencsv.exceptions.CsvDataTypeMismatchException;
+import com.opencsv.exceptions.CsvRequiredFieldEmptyException;
 import org.opencsv.csvperformance.domain.DataType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -37,6 +39,16 @@ public class CsvPerformanceController {
 
     @PostMapping("/writeTest")
     public String writeTestSubmit(@ModelAttribute WriteValues writeValues) {
+        WritePerformanceTester tester = new WritePerformanceTester();
+
+        try {
+            tester.runPerformanceTest(writeValues);
+        } catch (CsvDataTypeMismatchException e) {
+            e.printStackTrace();
+        } catch (CsvRequiredFieldEmptyException e) {
+            e.printStackTrace();
+        }
+
         return "writeResults";
     }
 

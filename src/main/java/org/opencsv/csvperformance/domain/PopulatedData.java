@@ -1,5 +1,7 @@
 package org.opencsv.csvperformance.domain;
 
+import org.opencsv.csvperformance.Constants;
+import org.opencsv.csvperformance.WriteValues;
 import org.opencsv.csvperformance.util.RandomDataSetter;
 
 import java.util.ArrayList;
@@ -20,5 +22,10 @@ public class PopulatedData {
             SIMPLE10LIST.add(simple10);
             SIMPLE50LIST.add(simple50);
         }
+    }
+
+    public static List getList(WriteValues writeValues) {
+        // TODO make switch/case once more than two types.
+        return Constants.SIMPLE10KEY.equals(writeValues.getWriteFrom()) ? SIMPLE10LIST : SIMPLE50LIST;
     }
 }

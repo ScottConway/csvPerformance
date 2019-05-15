@@ -10,7 +10,7 @@
     <p>Records to write: <input type="number" th:field="*{numRecords}" min="10000" max="1000000" step="1000"
                                 value="10000"/>
     </p>
-    <p>File: <input type="file" th:field="*{file}" webkitdirectory/></p>
+    <p>File: <input type="file" th:field="*{file}"/></p>
     <p>Write From:
         <select th:field="*{writeFrom}">
             <option th:each="key:${dataValues.keySet()}" th:value="${key}" th:utext="${dataValues.get(key)}">

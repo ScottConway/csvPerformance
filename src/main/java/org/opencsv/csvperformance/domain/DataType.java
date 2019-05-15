@@ -1,12 +1,14 @@
 package org.opencsv.csvperformance.domain;
 
+import org.opencsv.csvperformance.Constants;
+
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
 public enum DataType {
-    SIMPLE10("S10", "Simple 10 Columns"),
-    SIMPLE50("S50", "Simple 50 Columns");
+    SIMPLE10(Constants.SIMPLE10KEY, "Simple 10 Columns"),
+    SIMPLE50(Constants.SIMPLE50KEY, "Simple 50 Columns");
 
     private String shortId;
     private String name;
