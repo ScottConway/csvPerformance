@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import java.io.IOException;
+
 @Controller
 public class CsvPerformanceController {
 
@@ -47,9 +49,7 @@ public class CsvPerformanceController {
 
         try {
             tester.runPerformanceTest(writeValues);
-        } catch (CsvDataTypeMismatchException e) {
-            e.printStackTrace();
-        } catch (CsvRequiredFieldEmptyException e) {
+        } catch (CsvDataTypeMismatchException | CsvRequiredFieldEmptyException | IOException e) {
             e.printStackTrace();
         }
 

@@ -1,6 +1,7 @@
 package org.opencsv.csvperformance;
 
 import com.opencsv.bean.CsvToBean;
+import com.opencsv.exceptions.CsvMalformedLineException;
 import org.opencsv.csvperformance.builder.CSVToBeanBuilder;
 import org.opencsv.csvperformance.builder.CsvToBeanBuilderFactory;
 import org.springframework.util.StopWatch;
@@ -20,7 +21,15 @@ public class ReadPerformanceTester {
             if (csvToBean == null) return;
             Iterator iterator = csvToBean.iterator();
             while (iterator.hasNext()) {
-                o = iterator.next();
+                try {
+                    o = iterator.next();
+                } catch (Exception e) {
+                    if (e.getCause() instanceof CsvMalformedLineException) {
+                        CsvMalformedLineException cmle = (CsvMalformedLineException) e.getCause();
+                        System.out.println("Line parsed: " + cmle.getLineNumber());
+                        throw e;
+                    }
+                }
             }
         }
 

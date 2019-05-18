@@ -33,13 +33,19 @@ public class RandomDataSetter {
             case "java.lang.Character":
                 descriptor.getWriteMethod().invoke(o, RandomStringUtils.randomAlphabetic(1).charAt(0));
                 break;
+            case "byte":
+            case "java.lang.Byte":
+                descriptor.getWriteMethod().invoke(o, RandomUtils.nextBytes(1)[0]);
+                break;
             case "java.lang.String":
-                descriptor.getWriteMethod().invoke(o, RandomStringUtils.randomAlphanumeric(8, 32));
+                descriptor.getWriteMethod().invoke(o, RandomStringUtils.randomPrint(8, 32));
                 break;
             case "int":
+            case "java.lang.Integer":
                 descriptor.getWriteMethod().invoke(o, RandomUtils.nextInt());
                 break;
             case "double":
+            case "java.lang.Double":
                 descriptor.getWriteMethod().invoke(o, RandomUtils.nextDouble());
                 break;
             case "org.joda.time.DateTime":

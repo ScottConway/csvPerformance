@@ -7,52 +7,52 @@ public class Simple50 {
     private int num1;
     private double double1;
     private DateTime dateTime1;
-    private char char1;
+    private byte byte1;
     private String text2;
     private int num2;
     private double double2;
     private DateTime dateTime2;
-    private char char2;
+    private byte byte2;
     private String text3;
     private int num3;
     private double double3;
     private DateTime dateTime3;
-    private char char3;
+    private byte byte3;
     private String text4;
     private int num4;
     private double double4;
     private DateTime dateTime4;
-    private char char4;
+    private byte byte4;
     private String text5;
     private int num5;
     private double double5;
     private DateTime dateTime5;
-    private char char5;
+    private byte byte5;
     private String text6;
     private int num6;
     private double double6;
     private DateTime dateTime6;
-    private char char6;
+    private byte byte6;
     private String text7;
     private int num7;
     private double double7;
     private DateTime dateTime7;
-    private char char7;
+    private byte byte7;
     private String text8;
     private int num8;
     private double double8;
     private DateTime dateTime8;
-    private char char8;
+    private byte byte8;
     private String text9;
     private int num9;
     private double double9;
     private DateTime dateTime9;
-    private char char9;
+    private byte byte9;
     private String text10;
     private int num10;
     private double double10;
     private DateTime dateTime10;
-    private char char10;
+    private byte byte10;
 
     public String getText1() {
         return text1;
@@ -86,12 +86,12 @@ public class Simple50 {
         this.dateTime1 = dateTime1;
     }
 
-    public char getChar1() {
-        return char1;
+    public byte getByte1() {
+        return byte1;
     }
 
-    public void setChar1(char char1) {
-        this.char1 = char1;
+    public void setByte1(byte byte1) {
+        this.byte1 = byte1;
     }
 
     public String getText2() {
@@ -126,12 +126,12 @@ public class Simple50 {
         this.dateTime2 = dateTime2;
     }
 
-    public char getChar2() {
-        return char2;
+    public byte getByte2() {
+        return byte2;
     }
 
-    public void setChar2(char char2) {
-        this.char2 = char2;
+    public void setByte2(byte byte2) {
+        this.byte2 = byte2;
     }
 
     public String getText3() {
@@ -166,12 +166,12 @@ public class Simple50 {
         this.dateTime3 = dateTime3;
     }
 
-    public char getChar3() {
-        return char3;
+    public byte getByte3() {
+        return byte3;
     }
 
-    public void setChar3(char char3) {
-        this.char3 = char3;
+    public void setByte3(byte byte3) {
+        this.byte3 = byte3;
     }
 
     public String getText4() {
@@ -206,12 +206,12 @@ public class Simple50 {
         this.dateTime4 = dateTime4;
     }
 
-    public char getChar4() {
-        return char4;
+    public byte getByte4() {
+        return byte4;
     }
 
-    public void setChar4(char char4) {
-        this.char4 = char4;
+    public void setByte4(byte byte4) {
+        this.byte4 = byte4;
     }
 
     public String getText5() {
@@ -246,12 +246,12 @@ public class Simple50 {
         this.dateTime5 = dateTime5;
     }
 
-    public char getChar5() {
-        return char5;
+    public byte getByte5() {
+        return byte5;
     }
 
-    public void setChar5(char char5) {
-        this.char5 = char5;
+    public void setByte5(byte byte5) {
+        this.byte5 = byte5;
     }
 
     public String getText6() {
@@ -286,12 +286,12 @@ public class Simple50 {
         this.dateTime6 = dateTime6;
     }
 
-    public char getChar6() {
-        return char6;
+    public byte getByte6() {
+        return byte6;
     }
 
-    public void setChar6(char char6) {
-        this.char6 = char6;
+    public void setByte6(byte byte6) {
+        this.byte6 = byte6;
     }
 
     public String getText7() {
@@ -326,12 +326,12 @@ public class Simple50 {
         this.dateTime7 = dateTime7;
     }
 
-    public char getChar7() {
-        return char7;
+    public byte getByte7() {
+        return byte7;
     }
 
-    public void setChar7(char char7) {
-        this.char7 = char7;
+    public void setByte7(byte byte7) {
+        this.byte7 = byte7;
     }
 
     public String getText8() {
@@ -366,12 +366,12 @@ public class Simple50 {
         this.dateTime8 = dateTime8;
     }
 
-    public char getChar8() {
-        return char8;
+    public byte getByte8() {
+        return byte8;
     }
 
-    public void setChar8(char char8) {
-        this.char8 = char8;
+    public void setByte8(byte byte8) {
+        this.byte8 = byte8;
     }
 
     public String getText9() {
@@ -406,12 +406,12 @@ public class Simple50 {
         this.dateTime9 = dateTime9;
     }
 
-    public char getChar9() {
-        return char9;
+    public byte getByte9() {
+        return byte9;
     }
 
-    public void setChar9(char char9) {
-        this.char9 = char9;
+    public void setByte9(byte byte9) {
+        this.byte9 = byte9;
     }
 
     public String getText10() {
@@ -446,11 +446,11 @@ public class Simple50 {
         this.dateTime10 = dateTime10;
     }
 
-    public char getChar10() {
-        return char10;
+    public byte getByte10() {
+        return byte10;
     }
 
-    public void setChar10(char char10) {
-        this.char10 = char10;
+    public void setByte10(byte byte10) {
+        this.byte10 = byte10;
     }
 }
