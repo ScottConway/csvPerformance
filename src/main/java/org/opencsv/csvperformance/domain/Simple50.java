@@ -1,57 +1,110 @@
 package org.opencsv.csvperformance.domain;
 
+import com.opencsv.bean.CsvBindByName;
+import com.opencsv.bean.CsvCustomBindByName;
 import org.joda.time.DateTime;
+import org.opencsv.csvperformance.util.JodaDateTimeConverter;
 
 public class Simple50 {
+    @CsvBindByName
     private String text1;
+    @CsvBindByName
     private int num1;
+    @CsvBindByName
     private double double1;
+    @CsvCustomBindByName(converter = JodaDateTimeConverter.class)
     private DateTime dateTime1;
+    @CsvBindByName
     private byte byte1;
+    @CsvBindByName
     private String text2;
+    @CsvBindByName
     private int num2;
+    @CsvBindByName
     private double double2;
+    @CsvCustomBindByName(converter = JodaDateTimeConverter.class)
     private DateTime dateTime2;
+    @CsvBindByName
     private byte byte2;
+    @CsvBindByName
     private String text3;
+    @CsvBindByName
     private int num3;
+    @CsvBindByName
     private double double3;
+    @CsvCustomBindByName(converter = JodaDateTimeConverter.class)
     private DateTime dateTime3;
+    @CsvBindByName
     private byte byte3;
+    @CsvBindByName
     private String text4;
+    @CsvBindByName
     private int num4;
+    @CsvBindByName
     private double double4;
+    @CsvCustomBindByName(converter = JodaDateTimeConverter.class)
     private DateTime dateTime4;
+    @CsvBindByName
     private byte byte4;
+    @CsvBindByName
     private String text5;
+    @CsvBindByName
     private int num5;
+    @CsvBindByName
     private double double5;
+    @CsvCustomBindByName(converter = JodaDateTimeConverter.class)
     private DateTime dateTime5;
+    @CsvBindByName
     private byte byte5;
+    @CsvBindByName
     private String text6;
+    @CsvBindByName
     private int num6;
+    @CsvBindByName
     private double double6;
+    @CsvCustomBindByName(converter = JodaDateTimeConverter.class)
     private DateTime dateTime6;
+    @CsvBindByName
     private byte byte6;
+    @CsvBindByName
     private String text7;
+    @CsvBindByName
     private int num7;
+    @CsvBindByName
     private double double7;
+    @CsvCustomBindByName(converter = JodaDateTimeConverter.class)
     private DateTime dateTime7;
+    @CsvBindByName
     private byte byte7;
+    @CsvBindByName
     private String text8;
+    @CsvBindByName
     private int num8;
+    @CsvBindByName
     private double double8;
+    @CsvCustomBindByName(converter = JodaDateTimeConverter.class)
     private DateTime dateTime8;
+    @CsvBindByName
     private byte byte8;
+    @CsvBindByName
     private String text9;
+    @CsvBindByName
     private int num9;
+    @CsvBindByName
     private double double9;
+    @CsvCustomBindByName(converter = JodaDateTimeConverter.class)
     private DateTime dateTime9;
+    @CsvBindByName
     private byte byte9;
+    @CsvBindByName
     private String text10;
+    @CsvBindByName
     private int num10;
+    @CsvBindByName
     private double double10;
+    @CsvCustomBindByName(converter = JodaDateTimeConverter.class)
     private DateTime dateTime10;
+    @CsvBindByName
     private byte byte10;
 
     public String getText1() {

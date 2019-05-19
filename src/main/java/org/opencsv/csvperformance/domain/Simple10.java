@@ -1,17 +1,30 @@
 package org.opencsv.csvperformance.domain;
 
+import com.opencsv.bean.CsvBindByName;
+import com.opencsv.bean.CsvCustomBindByName;
 import org.joda.time.DateTime;
+import org.opencsv.csvperformance.util.JodaDateTimeConverter;
 
 public class Simple10 {
+    @CsvBindByName
     private String text1;
+    @CsvBindByName
     private Integer num1;
+    @CsvBindByName
     private Double double1;
+    @CsvCustomBindByName(converter = JodaDateTimeConverter.class)
     private DateTime dateTime1;
+    @CsvBindByName
     private byte byte1;
+    @CsvBindByName
     private String text2;
+    @CsvBindByName
     private Integer num2;
+    @CsvBindByName
     private Double double2;
+    @CsvCustomBindByName(converter = JodaDateTimeConverter.class)
     private DateTime dateTime2;
+    @CsvBindByName
     private byte byte2;
 
     public String getText1() {
