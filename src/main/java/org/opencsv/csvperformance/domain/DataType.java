@@ -8,7 +8,9 @@ import java.util.Map;
 
 public enum DataType {
     SIMPLE10(Constants.SIMPLE10KEY, "Simple 10 Columns"),
-    SIMPLE50(Constants.SIMPLE50KEY, "Simple 50 Columns");
+    SIMPLE50(Constants.SIMPLE50KEY, "Simple 50 Columns"),
+    ANNOTATED10(Constants.ANNOTATED10KEY, "Annotated 10 Columns"),
+    ANNOTATED50(Constants.ANNOTATED50KEY, "Annotated 50 Columns");
 
     private String shortId;
     private String name;

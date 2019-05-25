@@ -1,16 +1,30 @@
 package org.opencsv.csvperformance.domain;
 
+import com.opencsv.bean.CsvBindByName;
+import com.opencsv.bean.CsvCustomBindByName;
+import org.joda.time.DateTime;
+import org.opencsv.csvperformance.util.JodaDateTimeConverter;
 
-public class Simple10 {
+public class Annotated10 {
+    @CsvBindByName
     private String text1;
+    @CsvBindByName
     private Integer num1;
+    @CsvBindByName
     private Double double1;
-    private String aString1;
+    @CsvCustomBindByName(converter = JodaDateTimeConverter.class)
+    private DateTime dateTime1;
+    @CsvBindByName
     private byte byte1;
+    @CsvBindByName
     private String text2;
+    @CsvBindByName
     private Integer num2;
+    @CsvBindByName
     private Double double2;
-    private String aString2;
+    @CsvCustomBindByName(converter = JodaDateTimeConverter.class)
+    private DateTime dateTime2;
+    @CsvBindByName
     private byte byte2;
 
     public String getText1() {
@@ -37,12 +51,12 @@ public class Simple10 {
         this.double1 = double1;
     }
 
-    public String getString1() {
-        return aString1;
+    public DateTime getDateTime1() {
+        return dateTime1;
     }
 
-    public void setString1(String aString1) {
-        this.aString1 = aString1;
+    public void setDateTime1(DateTime dateTime1) {
+        this.dateTime1 = dateTime1;
     }
 
     public byte getByte1() {
@@ -77,12 +91,12 @@ public class Simple10 {
         this.double2 = double2;
     }
 
-    public String getString2() {
-        return aString2;
+    public DateTime getDateTime2() {
+        return dateTime2;
     }
 
-    public void setString2(String aString2) {
-        this.aString2 = aString2;
+    public void setDateTime2(DateTime dateTime2) {
+        this.dateTime2 = dateTime2;
     }
 
     public byte getByte2() {
@@ -99,12 +113,12 @@ public class Simple10 {
                 "text1='" + text1 + '\'' +
                 ", num1=" + num1 +
                 ", double1=" + double1 +
-                ", aString1=" + aString1 +
+                ", dateTime1=" + dateTime1 +
                 ", byte1=" + byte1 +
                 ", text2='" + text2 + '\'' +
                 ", num2=" + num2 +
                 ", double2=" + double2 +
-                ", aString2=" + aString2 +
+                ", dateTime2=" + dateTime2 +
                 ", byte2=" + byte2 +
                 '}';
     }

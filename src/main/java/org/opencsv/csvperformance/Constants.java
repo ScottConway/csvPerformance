@@ -6,4 +6,6 @@ public interface Constants {
 
     String SIMPLE10KEY = "S10";
     String SIMPLE50KEY = "S50";
+    String ANNOTATED10KEY = "A10";
+    String ANNOTATED50KEY = "A50";
 }

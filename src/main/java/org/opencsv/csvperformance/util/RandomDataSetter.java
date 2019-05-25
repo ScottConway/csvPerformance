@@ -48,6 +48,10 @@ public class RandomDataSetter {
             case "java.lang.Double":
                 descriptor.getWriteMethod().invoke(o, RandomUtils.nextDouble());
                 break;
+            case "long":
+            case "java.lang.Long":
+                descriptor.getWriteMethod().invoke(o, RandomUtils.nextLong());
+                break;
             case "org.joda.time.DateTime":
                 DateTime dateTime = DateTime.now().minusDays(RandomUtils.nextInt(1, 60));
                 descriptor.getWriteMethod().invoke(o, dateTime);

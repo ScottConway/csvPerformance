@@ -1,56 +1,112 @@
 package org.opencsv.csvperformance.domain;
 
-public class Simple50 {
+import com.opencsv.bean.CsvBindByName;
+import com.opencsv.bean.CsvCustomBindByName;
+import org.joda.time.DateTime;
+import org.opencsv.csvperformance.util.JodaDateTimeConverter;
+
+public class Annotated50 {
+
+    @CsvBindByName
     private String text1;
+    @CsvBindByName
     private int num1;
+    @CsvBindByName
     private double double1;
-    private String aString1;
-    private long long1;
+    @CsvCustomBindByName(converter = JodaDateTimeConverter.class)
+    private DateTime dateTime1;
+    @CsvBindByName
+    private byte byte1;
+    @CsvBindByName
     private String text2;
+    @CsvBindByName
     private int num2;
+    @CsvBindByName
     private double double2;
-    private String aString2;
-    private long long2;
+    @CsvCustomBindByName(converter = JodaDateTimeConverter.class)
+    private DateTime dateTime2;
+    @CsvBindByName
+    private byte byte2;
+    @CsvBindByName
     private String text3;
+    @CsvBindByName
     private int num3;
+    @CsvBindByName
     private double double3;
-    private String aString3;
-    private long long3;
+    @CsvCustomBindByName(converter = JodaDateTimeConverter.class)
+    private DateTime dateTime3;
+    @CsvBindByName
+    private byte byte3;
+    @CsvBindByName
     private String text4;
+    @CsvBindByName
     private int num4;
+    @CsvBindByName
     private double double4;
-    private String aString4;
-    private long long4;
+    @CsvCustomBindByName(converter = JodaDateTimeConverter.class)
+    private DateTime dateTime4;
+    @CsvBindByName
+    private byte byte4;
+    @CsvBindByName
     private String text5;
+    @CsvBindByName
     private int num5;
+    @CsvBindByName
     private double double5;
-    private String aString5;
-    private long long5;
+    @CsvCustomBindByName(converter = JodaDateTimeConverter.class)
+    private DateTime dateTime5;
+    @CsvBindByName
+    private byte byte5;
+    @CsvBindByName
     private String text6;
+    @CsvBindByName
     private int num6;
+    @CsvBindByName
     private double double6;
-    private String aString6;
-    private long long6;
+    @CsvCustomBindByName(converter = JodaDateTimeConverter.class)
+    private DateTime dateTime6;
+    @CsvBindByName
+    private byte byte6;
+    @CsvBindByName
     private String text7;
+    @CsvBindByName
     private int num7;
+    @CsvBindByName
     private double double7;
-    private String aString7;
-    private long long7;
+    @CsvCustomBindByName(converter = JodaDateTimeConverter.class)
+    private DateTime dateTime7;
+    @CsvBindByName
+    private byte byte7;
+    @CsvBindByName
     private String text8;
+    @CsvBindByName
     private int num8;
+    @CsvBindByName
     private double double8;
-    private String aString8;
-    private long long8;
+    @CsvCustomBindByName(converter = JodaDateTimeConverter.class)
+    private DateTime dateTime8;
+    @CsvBindByName
+    private byte byte8;
+    @CsvBindByName
     private String text9;
+    @CsvBindByName
     private int num9;
+    @CsvBindByName
     private double double9;
-    private String aString9;
-    private long long9;
+    @CsvCustomBindByName(converter = JodaDateTimeConverter.class)
+    private DateTime dateTime9;
+    @CsvBindByName
+    private byte byte9;
+    @CsvBindByName
     private String text10;
+    @CsvBindByName
     private int num10;
+    @CsvBindByName
     private double double10;
-    private String aString10;
-    private long long10;
+    @CsvCustomBindByName(converter = JodaDateTimeConverter.class)
+    private DateTime dateTime10;
+    @CsvBindByName
+    private byte byte10;
 
     public String getText1() {
         return text1;
@@ -76,20 +132,20 @@ public class Simple50 {
         this.double1 = double1;
     }
 
-    public String getString1() {
-        return aString1;
+    public DateTime getDateTime1() {
+        return dateTime1;
     }
 
-    public void setString1(String aString1) {
-        this.aString1 = aString1;
+    public void setDateTime1(DateTime dateTime1) {
+        this.dateTime1 = dateTime1;
     }
 
-    public long getLong1() {
-        return long1;
+    public byte getByte1() {
+        return byte1;
     }
 
-    public void setLong1(long long1) {
-        this.long1 = long1;
+    public void setByte1(byte byte1) {
+        this.byte1 = byte1;
     }
 
     public String getText2() {
@@ -116,20 +172,20 @@ public class Simple50 {
         this.double2 = double2;
     }
 
-    public String getString2() {
-        return aString2;
+    public DateTime getDateTime2() {
+        return dateTime2;
     }
 
-    public void setString2(String aString2) {
-        this.aString2 = aString2;
+    public void setDateTime2(DateTime dateTime2) {
+        this.dateTime2 = dateTime2;
     }
 
-    public long getLong2() {
-        return long2;
+    public byte getByte2() {
+        return byte2;
     }
 
-    public void setLong2(long long2) {
-        this.long2 = long2;
+    public void setByte2(byte byte2) {
+        this.byte2 = byte2;
     }
 
     public String getText3() {
@@ -156,20 +212,20 @@ public class Simple50 {
         this.double3 = double3;
     }
 
-    public String getString3() {
-        return aString3;
+    public DateTime getDateTime3() {
+        return dateTime3;
     }
 
-    public void setString3(String aString3) {
-        this.aString3 = aString3;
+    public void setDateTime3(DateTime dateTime3) {
+        this.dateTime3 = dateTime3;
     }
 
-    public long getLong3() {
-        return long3;
+    public byte getByte3() {
+        return byte3;
     }
 
-    public void setLong3(long long3) {
-        this.long3 = long3;
+    public void setByte3(byte byte3) {
+        this.byte3 = byte3;
     }
 
     public String getText4() {
@@ -196,20 +252,20 @@ public class Simple50 {
         this.double4 = double4;
     }
 
-    public String getString4() {
-        return aString4;
+    public DateTime getDateTime4() {
+        return dateTime4;
     }
 
-    public void setString4(String aString4) {
-        this.aString4 = aString4;
+    public void setDateTime4(DateTime dateTime4) {
+        this.dateTime4 = dateTime4;
     }
 
-    public long getLong4() {
-        return long4;
+    public byte getByte4() {
+        return byte4;
     }
 
-    public void setLong4(long long4) {
-        this.long4 = long4;
+    public void setByte4(byte byte4) {
+        this.byte4 = byte4;
     }
 
     public String getText5() {
@@ -236,20 +292,20 @@ public class Simple50 {
         this.double5 = double5;
     }
 
-    public String getString5() {
-        return aString5;
+    public DateTime getDateTime5() {
+        return dateTime5;
     }
 
-    public void setString5(String aString5) {
-        this.aString5 = aString5;
+    public void setDateTime5(DateTime dateTime5) {
+        this.dateTime5 = dateTime5;
     }
 
-    public long getLong5() {
-        return long5;
+    public byte getByte5() {
+        return byte5;
     }
 
-    public void setLong5(long long5) {
-        this.long5 = long5;
+    public void setByte5(byte byte5) {
+        this.byte5 = byte5;
     }
 
     public String getText6() {
@@ -276,20 +332,20 @@ public class Simple50 {
         this.double6 = double6;
     }
 
-    public String getString6() {
-        return aString6;
+    public DateTime getDateTime6() {
+        return dateTime6;
     }
 
-    public void setString6(String aString6) {
-        this.aString6 = aString6;
+    public void setDateTime6(DateTime dateTime6) {
+        this.dateTime6 = dateTime6;
     }
 
-    public long getLong6() {
-        return long6;
+    public byte getByte6() {
+        return byte6;
     }
 
-    public void setLong6(long long6) {
-        this.long6 = long6;
+    public void setByte6(byte byte6) {
+        this.byte6 = byte6;
     }
 
     public String getText7() {
@@ -316,20 +372,20 @@ public class Simple50 {
         this.double7 = double7;
     }
 
-    public String getString7() {
-        return aString7;
+    public DateTime getDateTime7() {
+        return dateTime7;
     }
 
-    public void setString7(String aString7) {
-        this.aString7 = aString7;
+    public void setDateTime7(DateTime dateTime7) {
+        this.dateTime7 = dateTime7;
     }
 
-    public long getLong7() {
-        return long7;
+    public byte getByte7() {
+        return byte7;
     }
 
-    public void setLong7(long long7) {
-        this.long7 = long7;
+    public void setByte7(byte byte7) {
+        this.byte7 = byte7;
     }
 
     public String getText8() {
@@ -356,20 +412,20 @@ public class Simple50 {
         this.double8 = double8;
     }
 
-    public String getString8() {
-        return aString8;
+    public DateTime getDateTime8() {
+        return dateTime8;
     }
 
-    public void setString8(String aString8) {
-        this.aString8 = aString8;
+    public void setDateTime8(DateTime dateTime8) {
+        this.dateTime8 = dateTime8;
     }
 
-    public long getLong8() {
-        return long8;
+    public byte getByte8() {
+        return byte8;
     }
 
-    public void setLong8(long long8) {
-        this.long8 = long8;
+    public void setByte8(byte byte8) {
+        this.byte8 = byte8;
     }
 
     public String getText9() {
@@ -396,20 +452,20 @@ public class Simple50 {
         this.double9 = double9;
     }
 
-    public String getString9() {
-        return aString9;
+    public DateTime getDateTime9() {
+        return dateTime9;
     }
 
-    public void setString9(String aString9) {
-        this.aString9 = aString9;
+    public void setDateTime9(DateTime dateTime9) {
+        this.dateTime9 = dateTime9;
     }
 
-    public long getLong9() {
-        return long9;
+    public byte getByte9() {
+        return byte9;
     }
 
-    public void setLong9(long long9) {
-        this.long9 = long9;
+    public void setByte9(byte byte9) {
+        this.byte9 = byte9;
     }
 
     public String getText10() {
@@ -436,19 +492,20 @@ public class Simple50 {
         this.double10 = double10;
     }
 
-    public String getString10() {
-        return aString10;
+    public DateTime getDateTime10() {
+        return dateTime10;
     }
 
-    public void setString10(String aString10) {
-        this.aString10 = aString10;
+    public void setDateTime10(DateTime dateTime10) {
+        this.dateTime10 = dateTime10;
     }
 
-    public long getLong10() {
-        return long10;
+    public byte getByte10() {
+        return byte10;
     }
 
-    public void setLong10(long long10) {
-        this.long10 = long10;
+    public void setByte10(byte byte10) {
+        this.byte10 = byte10;
     }
+
 }
