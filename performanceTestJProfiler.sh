@@ -7,7 +7,7 @@ MEMORY_OPTS="-Xms384m -Xmx768m -XX:MaxMetaspaceSize=256m"
 #java8
 GC_OPTS="-XX:+UseG1GC -Xloggc:target/gc.log -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=target/java_pid<pid>.hprof -XX:+UseGCOverheadLimit"
 
-JAR_NAME="target/csv-performance-0.3-SNAPSHOT.jar"
+JAR_NAME="target/csv-performance-0.5-SNAPSHOT.jar"
 
 JPROFILER_OPTS="-Xshare:off"
 
