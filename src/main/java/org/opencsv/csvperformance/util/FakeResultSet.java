@@ -9,6 +9,8 @@ import java.util.Calendar;
 import java.util.Map;
 
 public class FakeResultSet implements ResultSet {
+
+
     @Override
     public boolean next() throws SQLException {
         return false;
