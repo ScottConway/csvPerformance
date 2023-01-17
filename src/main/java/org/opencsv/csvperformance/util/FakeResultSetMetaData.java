@@ -1,10 +1,12 @@
 package org.opencsv.csvperformance.util;
 
+import org.apache.commons.beanutils.PropertyUtils;
 import org.opencsv.csvperformance.Constants;
 import org.opencsv.csvperformance.WriteValues;
 import org.opencsv.csvperformance.domain.PopulatedData;
 import org.opencsv.csvperformance.domain.Simple50;
 
+import java.lang.reflect.InvocationTargetException;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.sql.Types;
@@ -19,10 +21,15 @@ public class FakeResultSetMetaData implements ResultSetMetaData {
     static List<Simple50> objectList = new ArrayList<>(MAX_OBJECTS);
 
     int lineNumber;
-    int maxLines;
 
-    public FakeResultSetMetaData(int maxLines) {
-        this.maxLines = maxLines;
+    private int getArrayLocation() {
+        return lineNumber % MAX_OBJECTS;
+    }
+
+    /**
+     * Default constructor
+     */
+    public FakeResultSetMetaData() {
         lineNumber = 0;
         if (objectList.size() == 0) {
             createObjectList();
@@ -39,6 +46,18 @@ public class FakeResultSetMetaData implements ResultSetMetaData {
 
         for (int i = 0; i < MAX_OBJECTS; i++) {
             objectList.add((Simple50) values.get(i % valuesSize));
+        }
+    }
+
+    public String getColumnValueAsString(int columnIndex) {
+        try {
+            return PropertyUtils.getSimpleProperty(objectList.get(getArrayLocation()), COLUMNS[columnIndex]).toString();
+        } catch (IllegalAccessException e) {
+            throw new RuntimeException(e);
+        } catch (InvocationTargetException e) {
+            throw new RuntimeException(e);
+        } catch (NoSuchMethodException e) {
+            throw new RuntimeException(e);
         }
     }
 
