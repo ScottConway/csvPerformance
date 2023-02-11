@@ -14,7 +14,7 @@ import java.util.List;
 public class FakeResultSetMetaData implements ResultSetMetaData {
     static final String[] COLUMNS = {"ASTRING1", "ASTRING10", "ASTRING2", "ASTRING3", "ASTRING4", "ASTRING5", "ASTRING6", "ASTRING7", "ASTRING8", "ASTRING9", "DOUBLE1", "DOUBLE10", "DOUBLE2", "DOUBLE3", "DOUBLE4", "DOUBLE5", "DOUBLE6", "DOUBLE7", "DOUBLE8", "DOUBLE9", "LONG1", "LONG10", "LONG2", "LONG3", "LONG4", "LONG5", "LONG6", "LONG7", "LONG8", "LONG9", "NUM1", "NUM10", "NUM2", "NUM3", "NUM4", "NUM5", "NUM6", "NUM7", "NUM8", "NUM9", "TEXT1", "TEXT10", "TEXT2", "TEXT3", "TEXT4", "TEXT5", "TEXT6", "TEXT7", "TEXT8", "TEXT9"};
     static final int[] COLUMN_TYPES = {Types.VARCHAR, Types.VARCHAR, Types.VARCHAR, Types.VARCHAR, Types.VARCHAR, Types.VARCHAR, Types.VARCHAR, Types.VARCHAR, Types.VARCHAR, Types.VARCHAR, Types.DOUBLE, Types.DOUBLE, Types.DOUBLE, Types.DOUBLE, Types.DOUBLE, Types.DOUBLE, Types.DOUBLE, Types.DOUBLE, Types.DOUBLE, Types.DOUBLE, Types.BIGINT, Types.BIGINT, Types.BIGINT, Types.BIGINT, Types.BIGINT, Types.BIGINT, Types.BIGINT, Types.BIGINT, Types.BIGINT, Types.BIGINT, Types.INTEGER, Types.INTEGER, Types.INTEGER, Types.INTEGER, Types.INTEGER, Types.INTEGER, Types.INTEGER, Types.INTEGER, Types.INTEGER, Types.INTEGER, Types.VARCHAR, Types.VARCHAR, Types.VARCHAR, Types.VARCHAR, Types.VARCHAR, Types.VARCHAR, Types.VARCHAR, Types.VARCHAR, Types.VARCHAR, Types.VARCHAR};
-
+    static final int NUMBER_OF_COLUMNS = COLUMN_TYPES.length;
     static final int MAX_OBJECTS = 100;
     static List<Simple50> objectList = new ArrayList<>(MAX_OBJECTS);
 
@@ -119,7 +119,7 @@ public class FakeResultSetMetaData implements ResultSetMetaData {
 
     @Override
     public int getColumnType(int column) throws SQLException {
-        return 0;
+        return COLUMN_TYPES[column - 1];
     }
 
     @Override

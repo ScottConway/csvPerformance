@@ -10,10 +10,19 @@ import java.util.Map;
 
 public class FakeResultSet implements ResultSet {
 
+    FakeResultSetMetaData metaData;
+    int rowPosition = -1;
+    int resultSize;
+
+    public FakeResultSet(int resultSetSize) {
+        metaData = new FakeResultSetMetaData(resultSetSize);
+        resultSize = resultSetSize;
+    }
 
     @Override
     public boolean next() throws SQLException {
-        return false;
+        rowPosition += 1;
+        return rowPosition < resultSize;
     }
 
     @Override
@@ -203,7 +212,7 @@ public class FakeResultSet implements ResultSet {
 
     @Override
     public ResultSetMetaData getMetaData() throws SQLException {
-        return null;
+        return metaData;
     }
 
     @Override
