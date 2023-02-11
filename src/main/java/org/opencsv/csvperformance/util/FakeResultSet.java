@@ -37,7 +37,8 @@ public class FakeResultSet implements ResultSet {
 
     @Override
     public String getString(int columnIndex) throws SQLException {
-        return null;
+        String value = metaData.getStringAtRowColumn(rowPosition, columnIndex);
+        return value;
     }
 
     @Override
@@ -57,7 +58,8 @@ public class FakeResultSet implements ResultSet {
 
     @Override
     public int getInt(int columnIndex) throws SQLException {
-        return 0;
+        int value = metaData.getIntAtRowColumn(rowPosition, columnIndex);
+        return value;
     }
 
     @Override
@@ -72,7 +74,8 @@ public class FakeResultSet implements ResultSet {
 
     @Override
     public double getDouble(int columnIndex) throws SQLException {
-        return 0;
+        double value = metaData.getDoubleAtRowColumn(rowPosition, columnIndex);
+        return value;
     }
 
     @Override
@@ -242,7 +245,8 @@ public class FakeResultSet implements ResultSet {
 
     @Override
     public BigDecimal getBigDecimal(int columnIndex) throws SQLException {
-        return null;
+        BigDecimal value = metaData.getBigDecimalAtRowColumn(rowPosition, columnIndex);
+        return value;
     }
 
     @Override
