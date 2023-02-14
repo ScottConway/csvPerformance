@@ -15,7 +15,7 @@ public class FakeResultSet implements ResultSet {
     int resultSize;
 
     public FakeResultSet(int resultSetSize) {
-        metaData = new FakeResultSetMetaData(resultSetSize);
+        metaData = new FakeResultSetMetaData();
         resultSize = resultSetSize;
     }
 

@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import java.io.IOException;
+import java.sql.SQLException;
 
 @Controller
 public class CsvPerformanceController {
@@ -56,4 +57,26 @@ public class CsvPerformanceController {
         return "writeResults";
     }
 
+    @GetMapping("/resultSetTest")
+    public String setupResultSetTestForm(Model model) {
+        WriteValues writeValues = new WriteValues();
+        writeValues.setNumRecords(50000);
+        writeValues.setParserToUse(Constants.CSVPARSER);
+        model.addAttribute("writeValues", writeValues);
+        model.addAttribute("dataValues", DataType.buildIdNameMap());
+        return "resultSetTest";
+    }
+
+    @PostMapping("/resultSetTest")
+    public String resultSetTestSubmit(@ModelAttribute WriteValues writeValues) {
+        ResultSetPerformanceTester tester = new ResultSetPerformanceTester();
+
+        try {
+            tester.runPerformanceTest(writeValues);
+        } catch (CsvDataTypeMismatchException | CsvRequiredFieldEmptyException | IOException | SQLException e) {
+            e.printStackTrace();
+        }
+
+        return "resultSetResults";
+    }
 }

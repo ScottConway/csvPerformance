@@ -4,6 +4,8 @@ import org.opencsv.csvperformance.Constants;
 import org.opencsv.csvperformance.WriteValues;
 import org.opencsv.csvperformance.domain.PopulatedData;
 import org.opencsv.csvperformance.domain.Simple50;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.lang.reflect.Field;
 import java.math.BigDecimal;
@@ -14,6 +16,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class FakeResultSetMetaData implements ResultSetMetaData {
+
+    Logger logger = LoggerFactory.getLogger(FakeResultSetMetaData.class);
+
     static final String[] FIELD_NAMES = {"aString1", "aString10", "aString2", "aString3", "aString4", "aString5", "aString6", "aString7", "aString8", "aString9", "double1", "double10", "double2", "double3", "double4", "double5", "double6", "double7", "double8", "double9", "long1", "long10", "long2", "long3", "long4", "long5", "long6", "long7", "long8", "long9", "num1", "num10", "num2", "num3", "num4", "num5", "num6", "num7", "num8", "num9", "text1", "text10", "text2", "text3", "text4", "text5", "text6", "text7", "text8", "text9"};
 
     static final String[] COLUMNS = {"ASTRING1", "ASTRING10", "ASTRING2", "ASTRING3", "ASTRING4", "ASTRING5", "ASTRING6", "ASTRING7", "ASTRING8", "ASTRING9", "DOUBLE1", "DOUBLE10", "DOUBLE2", "DOUBLE3", "DOUBLE4", "DOUBLE5", "DOUBLE6", "DOUBLE7", "DOUBLE8", "DOUBLE9", "LONG1", "LONG10", "LONG2", "LONG3", "LONG4", "LONG5", "LONG6", "LONG7", "LONG8", "LONG9", "NUM1", "NUM10", "NUM2", "NUM3", "NUM4", "NUM5", "NUM6", "NUM7", "NUM8", "NUM9", "TEXT1", "TEXT10", "TEXT2", "TEXT3", "TEXT4", "TEXT5", "TEXT6", "TEXT7", "TEXT8", "TEXT9"};
@@ -23,10 +28,8 @@ public class FakeResultSetMetaData implements ResultSetMetaData {
     static List<Simple50> objectList = new ArrayList<>(MAX_OBJECTS);
 
     int lineNumber;
-    int maxLines;
 
-    public FakeResultSetMetaData(int maxLines) {
-        this.maxLines = maxLines;
+    public FakeResultSetMetaData() {
         lineNumber = 0;
         if (objectList.size() == 0) {
             createObjectList();
@@ -169,7 +172,7 @@ public class FakeResultSetMetaData implements ResultSetMetaData {
 
         Field field = null;
         try {
-            field = simple50.getClass().getDeclaredField(FIELD_NAMES[columnIndex]);
+            field = simple50.getClass().getDeclaredField(FIELD_NAMES[columnIndex-1]);
         } catch (NoSuchFieldException e) {
             return null;
         }
@@ -188,17 +191,19 @@ public class FakeResultSetMetaData implements ResultSetMetaData {
 
         Field field = null;
         try {
-            field = simple50.getClass().getDeclaredField(FIELD_NAMES[columnIndex]);
+            field = simple50.getClass().getDeclaredField(FIELD_NAMES[columnIndex-1]);
         } catch (NoSuchFieldException e) {
             return -1;
         }
         field.setAccessible(true);
         try {
             Object value = field.get(simple50);
+            Double dv;
             if (!(value instanceof Double)) {
-                return -2;
+                dv = Double.valueOf(value.toString());
+            } else {
+                dv = (Double) value;
             }
-            Double dv = (Double) value;
             return dv.doubleValue();
         } catch (IllegalAccessException e) {
             return -1;
@@ -210,14 +215,14 @@ public class FakeResultSetMetaData implements ResultSetMetaData {
 
         Field field = null;
         try {
-            field = simple50.getClass().getDeclaredField(FIELD_NAMES[columnIndex]);
+            field = simple50.getClass().getDeclaredField(FIELD_NAMES[columnIndex-1]);
         } catch (NoSuchFieldException e) {
             return null;
         }
         field.setAccessible(true);
         try {
             Object value = field.get(simple50);
-            return (BigDecimal) value;
+            return new BigDecimal(value.toString());
         } catch (IllegalAccessException e) {
             return null;
         }
@@ -228,7 +233,7 @@ public class FakeResultSetMetaData implements ResultSetMetaData {
 
         Field field = null;
         try {
-            field = simple50.getClass().getDeclaredField(FIELD_NAMES[columnIndex]);
+            field = simple50.getClass().getDeclaredField(FIELD_NAMES[columnIndex-1]);
         } catch (NoSuchFieldException e) {
             return -1;
         }

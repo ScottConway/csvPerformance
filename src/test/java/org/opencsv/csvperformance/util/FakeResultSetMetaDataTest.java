@@ -21,14 +21,14 @@ public class FakeResultSetMetaDataTest {
     @Test
     @DisplayName("Construct an actual metadata.")
     public void constructMetaData() {
-        FakeResultSetMetaData md = new FakeResultSetMetaData(TEST_SIZE);
+        FakeResultSetMetaData md = new FakeResultSetMetaData();
         assertNotNull(md);
     }
 
     @Test
     @DisplayName("Check column types.")
     public void checkColumnType() throws SQLException {
-        FakeResultSetMetaData md = new FakeResultSetMetaData(TEST_SIZE);
+        FakeResultSetMetaData md = new FakeResultSetMetaData();
         for (int i = 1; i <= FakeResultSetMetaData.NUMBER_OF_COLUMNS; i++) {
             assertEquals(FakeResultSetMetaData.COLUMN_TYPES[i-1], md.getColumnType(i),
                     String.format("For column %s expected type %s but got %s",
