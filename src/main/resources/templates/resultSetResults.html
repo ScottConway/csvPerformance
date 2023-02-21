@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>ResultSet Results</title>
+</head>
+<body>
+<h1>Results</h1>
+<p th:text="'numRecords: ' + ${writeValues.numRecords}"/>
+<p th:text="'file: ' + ${writeValues.file}"/>
+<p th:text="'Write from: ' + ${writeValues.writeFrom}"/>
+<p th:text="'Parser to use: ' + ${writeValues.parserToUse}"/>
+<br>
+<p th:text="'Seconds to run: ' + ${writeValues.timeToRun}"/>
+<a href="/resultSetTest">Run another performance test</a>
+</body>
+</html>
