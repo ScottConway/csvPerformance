@@ -196,8 +196,9 @@ public class FakeResultSetMetaData implements ResultSetMetaData {
             return -1;
         }
         field.setAccessible(true);
+        Object value = null;
         try {
-            Object value = field.get(simple50);
+            value = field.get(simple50);
             Double dv;
             if (!(value instanceof Double)) {
                 dv = Double.valueOf(value.toString());
@@ -207,6 +208,8 @@ public class FakeResultSetMetaData implements ResultSetMetaData {
             return dv.doubleValue();
         } catch (IllegalAccessException e) {
             return -1;
+        } catch (NumberFormatException nfe) {
+            throw new NumberFormatException(String.format("For input String: %s rowPosition: %d columnPostion: %d", value, rowPosition, columnIndex));
         }
     }
 

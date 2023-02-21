@@ -36,7 +36,7 @@ public class FakeResultSetTest {
         for (int i = 1; i <= TEST_SIZE; i++) {
             fakeResultSet.next();
             for (int j = 1; j <= FakeResultSetMetaData.NUMBER_OF_COLUMNS; j++) {
-                switch (md.getColumnType(i)) {
+                switch (md.getColumnType(j)) {
                     case Types.VARCHAR:
                         String columnValue = fakeResultSet.getString(j);
                         assertNotNull(columnValue);
