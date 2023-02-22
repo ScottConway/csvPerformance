@@ -10,28 +10,19 @@ import java.util.Map;
 
 public class FakeResultSet implements ResultSet {
 
-    int lineNumber;
-    int maxLines;
-
-    boolean lastColumnReadWasNull = false;
-
     FakeResultSetMetaData metaData;
+    int rowPosition = -1;
+    int resultSize;
 
-    /**
-     * Default Constructor
-     *
-     * @param maxLines - number of lines of data that was "retrieved" by the query.
-     */
-    public FakeResultSet(int maxLines) {
-        this.lineNumber = 0;
-        this.maxLines = maxLines;
+    public FakeResultSet(int resultSetSize) {
         metaData = new FakeResultSetMetaData();
+        resultSize = resultSetSize;
     }
 
     @Override
     public boolean next() throws SQLException {
-        this.lineNumber++;
-        return lineNumber < maxLines;
+        rowPosition += 1;
+        return rowPosition < resultSize;
     }
 
     @Override
@@ -41,181 +32,170 @@ public class FakeResultSet implements ResultSet {
 
     @Override
     public boolean wasNull() throws SQLException {
-        return lastColumnReadWasNull;
+        return false;
     }
 
     @Override
     public String getString(int columnIndex) throws SQLException {
-        String val = metaData.getColumnValueAsString(columnIndex);
-        checkNull(val);
-        return val;
-    }
-
-    private void checkNull(String value) {
-        this.lastColumnReadWasNull = (value == null);
+        String value = metaData.getStringAtRowColumn(rowPosition, columnIndex);
+        return value;
     }
 
     @Override
     public boolean getBoolean(int columnIndex) throws SQLException {
-        String val = metaData.getColumnValueAsString(columnIndex);
-        checkNull(val);
-        return Boolean.parseBoolean(val);
+        return false;
     }
 
     @Override
     public byte getByte(int columnIndex) throws SQLException {
-        throw new SQLException("Was not expecting getByte to be called by performance test!");
+        return 0;
     }
 
     @Override
     public short getShort(int columnIndex) throws SQLException {
-        throw new SQLException("Was not expecting getShort to be called by performance test!");
+        return 0;
     }
 
     @Override
     public int getInt(int columnIndex) throws SQLException {
-        String val = metaData.getColumnValueAsString(columnIndex);
-        checkNull(val);
-        return Integer.parseInt(val);
+        int value = metaData.getIntAtRowColumn(rowPosition, columnIndex);
+        return value;
     }
 
     @Override
     public long getLong(int columnIndex) throws SQLException {
-        throw new SQLException("Was not expecting getLong to be called by performance test!");
+        return 0;
     }
 
     @Override
     public float getFloat(int columnIndex) throws SQLException {
-        throw new SQLException("Was not expecting getFloat to be called by performance test!");
+        return 0;
     }
 
     @Override
     public double getDouble(int columnIndex) throws SQLException {
-        String val = metaData.getColumnValueAsString(columnIndex);
-        checkNull(val);
-        return Double.parseDouble(val);
+        double value = metaData.getDoubleAtRowColumn(rowPosition, columnIndex);
+        return value;
     }
 
     @Override
     public BigDecimal getBigDecimal(int columnIndex, int scale) throws SQLException {
-        String val = metaData.getColumnValueAsString(columnIndex);
-        checkNull(val);
-        return BigDecimal.valueOf(Double.parseDouble(val));
+        return null;
     }
 
     @Override
     public byte[] getBytes(int columnIndex) throws SQLException {
-        throw new SQLException("Was not expecting getBytes to be called by performance test!");
+        return new byte[0];
     }
 
     @Override
     public Date getDate(int columnIndex) throws SQLException {
-        throw new SQLException("Was not expecting getDate to be called by performance test!");
+        return null;
     }
 
     @Override
     public Time getTime(int columnIndex) throws SQLException {
-        throw new SQLException("Was not expecting getTime to be called by performance test!");
+        return null;
     }
 
     @Override
     public Timestamp getTimestamp(int columnIndex) throws SQLException {
-        throw new SQLException("Was not expecting getTimeStamp to be called by performance test!");
+        return null;
     }
 
     @Override
     public InputStream getAsciiStream(int columnIndex) throws SQLException {
-        throw new SQLException("Was not expecting getAsciiStream to be called by performance test!");
+        return null;
     }
 
     @Override
     public InputStream getUnicodeStream(int columnIndex) throws SQLException {
-        throw new SQLException("Was not expecting getUnicodeStream to be called by performance test!");
+        return null;
     }
 
     @Override
     public InputStream getBinaryStream(int columnIndex) throws SQLException {
-        throw new SQLException("Was not expecting getBinaryStream to be called by performance test!");
+        return null;
     }
 
     @Override
     public String getString(String columnLabel) throws SQLException {
-        throw new SQLException("Was not expecting columnLabel getString to be called by performance test for " + columnLabel);
+        return null;
     }
 
     @Override
     public boolean getBoolean(String columnLabel) throws SQLException {
-        throw new SQLException("Was not expecting columnLabel getBoolean to be called by performance test for " + columnLabel);
+        return false;
     }
 
     @Override
     public byte getByte(String columnLabel) throws SQLException {
-        throw new SQLException("Was not expecting columnLabel getByte to be called by performance test for " + columnLabel);
+        return 0;
     }
 
     @Override
     public short getShort(String columnLabel) throws SQLException {
-        throw new SQLException("Was not expecting columnLabel getShort to be called by performance test for " + columnLabel);
+        return 0;
     }
 
     @Override
     public int getInt(String columnLabel) throws SQLException {
-        throw new SQLException("Was not expecting columnLabel getInt to be called by performance test for " + columnLabel);
+        return 0;
     }
 
     @Override
     public long getLong(String columnLabel) throws SQLException {
-        throw new SQLException("Was not expecting columnLabel getLong to be called by performance test for " + columnLabel);
+        return 0;
     }
 
     @Override
     public float getFloat(String columnLabel) throws SQLException {
-        throw new SQLException("Was not expecting columnLabel getFloat to be called by performance test for " + columnLabel);
+        return 0;
     }
 
     @Override
     public double getDouble(String columnLabel) throws SQLException {
-        throw new SQLException("Was not expecting columnLabel getDouble to be called by performance test for " + columnLabel);
+        return 0;
     }
 
     @Override
     public BigDecimal getBigDecimal(String columnLabel, int scale) throws SQLException {
-        throw new SQLException("Was not expecting columnLabel getBigDecimal to be called by performance test for " + columnLabel);
+        return null;
     }
 
     @Override
     public byte[] getBytes(String columnLabel) throws SQLException {
-        throw new SQLException("Was not expecting columnLabel getBytes to be called by performance test for " + columnLabel);
+        return new byte[0];
     }
 
     @Override
     public Date getDate(String columnLabel) throws SQLException {
-        throw new SQLException("Was not expecting columnLabel getDate to be called by performance test for " + columnLabel);
+        return null;
     }
 
     @Override
     public Time getTime(String columnLabel) throws SQLException {
-        throw new SQLException("Was not expecting columnLabel getTime to be called by performance test for " + columnLabel);
+        return null;
     }
 
     @Override
     public Timestamp getTimestamp(String columnLabel) throws SQLException {
-        throw new SQLException("Was not expecting columnLabel getTimestamp to be called by performance test for " + columnLabel);
+        return null;
     }
 
     @Override
     public InputStream getAsciiStream(String columnLabel) throws SQLException {
-        throw new SQLException("Was not expecting columnLabel getAsciiStream to be called by performance test for " + columnLabel);
+        return null;
     }
 
     @Override
     public InputStream getUnicodeStream(String columnLabel) throws SQLException {
-        throw new SQLException("Was not expecting columnLabel getUnicodeStream to be called by performance test for " + columnLabel);
+        return null;
     }
 
     @Override
     public InputStream getBinaryStream(String columnLabel) throws SQLException {
-        throw new SQLException("Was not expecting columnLabel getBinaryStream to be called by performance test for " + columnLabel);
+        return null;
     }
 
     @Override
@@ -235,7 +215,7 @@ public class FakeResultSet implements ResultSet {
 
     @Override
     public ResultSetMetaData getMetaData() throws SQLException {
-        return null;
+        return metaData;
     }
 
     @Override
@@ -265,7 +245,8 @@ public class FakeResultSet implements ResultSet {
 
     @Override
     public BigDecimal getBigDecimal(int columnIndex) throws SQLException {
-        return null;
+        BigDecimal value = metaData.getBigDecimalAtRowColumn(rowPosition, columnIndex);
+        return value;
     }
 
     @Override
