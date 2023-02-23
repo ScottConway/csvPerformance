@@ -38,7 +38,7 @@ public class RandomDataSetter {
                 descriptor.getWriteMethod().invoke(o, RandomUtils.nextBytes(1)[0]);
                 break;
             case "java.lang.String":
-                descriptor.getWriteMethod().invoke(o, RandomStringUtils.randomPrint(8, 32));
+                descriptor.getWriteMethod().invoke(o, RandomStringUtils.randomPrint(128, 65000));
                 break;
             case "int":
             case "java.lang.Integer":
